@@ -28,6 +28,7 @@ jobs:
        shell: bash
        run: |
         npm install
+        npm install -g azure-functions-core-tools@3
        working-directory: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 
      - name: 'Run Azure Function'
@@ -39,6 +40,6 @@ jobs:
         publish-profile: ${{ secrets.FUNCTIONAPP_PUBLISH }}
         shell: bash
         run:
-          func azure functionapp publish ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          func azure functionapp publish ${{ env.AZURE_FUNCTIONAPP_NAME }} --nozip
 
 
