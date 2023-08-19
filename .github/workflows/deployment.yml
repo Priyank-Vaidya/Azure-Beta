@@ -7,7 +7,7 @@ on:
 
 env:
   AZURE_FUNCTIONAPP_NAME: 'ServerlessDeployment'
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: './AzureEvent/Functions/function_new' # default path is root directory
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: './AzureEvent/Functions' # default path is root directory
   NODE_VERSION: '18.x'
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
        shell: bash
        run: |
         npm install
-        npm run build --if-present
+       working-directory: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 
      - name: 'Run Azure Function'
        uses: azure/functions-action@v1
