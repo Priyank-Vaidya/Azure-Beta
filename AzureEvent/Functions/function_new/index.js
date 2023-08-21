@@ -4,7 +4,7 @@ module.exports = async function (context, req) {
     const name = (req.query.name || (req.body && req.body.name));
     const responseMessage = name
         ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully byyy Priyank Vaidya. Azure Azure Aindabaaaddddd!!";
+        : "This is Serverless Deployments session. You'll are great participants !! ";
 
     context.res = {
         // status: 200, /* Defaults to 200 */
