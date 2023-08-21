@@ -20,7 +20,7 @@ resource "azurerm_resource_group" "app_alpha_node"{
 }
 
 resource "azurerm_storage_account" "functionstore_0898891" {
-  name                     = "functionstore0898891"
+  name                     = "functionstore01alpha"
   resource_group_name      = azurerm_resource_group.app_alpha_node.name
   location                 = azurerm_resource_group.app_alpha_node.location
   account_tier             = "Standard"
@@ -28,7 +28,7 @@ resource "azurerm_storage_account" "functionstore_0898891" {
 }
 
 resource "azurerm_app_service_plan" "function_app_plan" {
-  name                = "function-app-plan-node"
+  name                = "function-app-plan-nodealpine"
   location            = azurerm_resource_group.app_alpha_node.location
   resource_group_name = azurerm_resource_group.app_alpha_node.name
   kind                = "Linux"
@@ -42,7 +42,7 @@ resource "azurerm_app_service_plan" "function_app_plan" {
 }
 
 resource "azurerm_function_app" "functionapp_12340012" {
-  name                       = "functionapp12340012"
+  name                       = "functionapp12340012-alpha"
   location                   = azurerm_resource_group.app_alpha_node.location
   resource_group_name        = azurerm_resource_group.app_alpha_node.name
   app_service_plan_id        = azurerm_app_service_plan.function_app_plan.id
